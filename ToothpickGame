@@ -1,0 +1,66 @@
+/*
+User competes against the computer in a game about toothpicks.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int toothpicks = 23, withdraw = 0, x = 0;
+    
+    cout << "The game of \"23\" is a two-player game that begins with \n" <<
+            "a pile of 23 toothpicks. Players take turns, withdrawing either 1, 2, or 3 toothpicks at a time. \n" <<
+            "The player who withdraws the last toothpick loses the game.\n";
+    
+    while (toothpicks > 0)
+    {
+        cout << "How many toothpicks would you like to withdraw? \n";
+        cin >> x;
+        
+        while ((x < 1) || (x > 3))
+        {
+            cout << "You must choose between 1 and 3 toothpicks. \n" <<
+                    "How many toothpicks would you like to withdraw?\n";
+            cin >> x;
+        }
+        
+        while (x > toothpicks)
+        {
+            cout << "You are trying to withdraw more toothpicks than remain. \n" <<
+                    "How many toothpicks would you like to withdraw?\n";
+            cin >> x;
+        }
+        
+        toothpicks = toothpicks - x;
+        
+        if (toothpicks == 0)
+        {
+            cout << "You lose!\n";
+            break;
+        }
+        
+        else if (toothpicks > 4)
+        {
+            withdraw = 4 - x;
+        }
+        else if (toothpicks > 1)
+        {
+            withdraw = toothpicks - 1;
+        }
+        else
+        {
+            withdraw = 1;
+            cout << "You win!\n";
+            break;
+        }
+        
+        toothpicks = toothpicks - withdraw;
+        cout << "Computer Withdraws: " << withdraw << " toothpick(s).\n";
+        cout << "Toothpicks Remaining: " << toothpicks << endl;
+        
+    }
+    
+    return 0;
+}
