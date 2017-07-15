@@ -1,0 +1,46 @@
+/*
+Locates smallest element in array.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+using namespace std;
+
+const int SIZE = 10;
+
+void enter();
+int indexOfSmallestElement(double[], int);
+
+int main()
+{
+    enter();
+    return 0;
+}
+
+void enter()
+{
+    double elements[SIZE];
+    
+    cout << "Enter 10 numbers between 0 and 99: ";
+    
+    for(int i = 0; i < SIZE; i++)
+        cin >> elements[i];
+    
+    cout << "Index of smallest element: " << indexOfSmallestElement(elements, SIZE) << endl;
+}
+
+int indexOfSmallestElement(double find[], int size)
+{
+    int smallest = find[0],
+        location = 0,
+        i;
+    for (i = 1; i < SIZE; i++)
+    {
+        if (find[i] < smallest)
+        {
+            smallest = find[i];
+            location = i;
+        }
+    }
+    return location;
+}
