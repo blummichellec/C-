@@ -1,0 +1,57 @@
+/*
+Communicates with the user and converts the input to another form.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+
+#include <iostream>
+using namespace std;
+
+void input(double& ft, double& in);
+void calc(double& feet, double& inches);
+void output(double meters, double centimeters);
+
+int main()
+{
+    char run;
+    double lengthft, lengthin;
+
+    cout << "Would you like to enter a length? (Y or N) \n";
+    cin >> run;
+    
+    while (run == 'Y')
+    {
+        input(lengthft,lengthin);
+        calc(lengthft, lengthin);
+        output(lengthft, lengthin);
+        cout << "Would you like to enter a length? (Y or N) \n";
+        cin >> run;
+    }
+    
+    return 0;
+}
+
+void input(double& ft, double& in)
+{
+    cout << "Number of feet in length: \n";
+    cin >> ft;
+    
+    cout << "Number of inches in length: \n";
+    cin >> in;
+}
+
+void calc(double& feet, double& inches)
+{
+    feet = feet * 0.3048; //convert to meters
+    inches = inches * 2.54; //convert to centimeters
+    while (inches >= 100)
+    {
+        feet = feet + 1;
+        inches = inches - 100;
+    }
+}
+
+void output(double meters, double centimeters)
+{
+    cout << "The entered value converts to approximately: " << meters << "m " << centimeters << "cm\n";
+}
