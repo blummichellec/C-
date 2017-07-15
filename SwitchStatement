@@ -1,0 +1,55 @@
+/*
+User selects a geometric figure to calculate information about.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    
+    //Variables
+    int choice;
+    double radius, length, width, height;
+    
+    //Display user choices
+    cout << "Geometry Calculator\n1. Calculate the Area of a Circle\n" <<
+            "2. Calculate the Area of a Rectangle\n3. Calculate the Area of a Triangle"
+            << endl << "4. Quit" << endl;
+    
+    //User makes choice
+    cout << "Enter your choice (1-4): ";
+    cin >> choice;
+    
+    //Switch statement for user input
+    switch (choice)
+    {
+        case 1:
+            cout << "Radius of Circle: \n";
+            cin >> radius;
+            cout << "Area: " << pow(radius,2) * M_PI << " units^2" << endl; //Googled how to state pi
+            break;
+        case 2:
+            cout << "Length of Rectangle: \n";
+            cin >> length;
+            cout << "Width of Rectangle: \n";
+            cin >> width;
+            cout << "Area: " << length * width << " units^2" << endl;
+            break;
+        case 3:
+            cout << "Length of base: \n";
+            cin >> length;
+            cout << "Height of triangle: \n";
+            cin >> height;
+            cout << "Area: " << ((0.5) * length) * height << " units^2" << endl;
+            break;
+        case 4:
+            cout << "The program has ended.\n";
+            break;
+        default:
+            cout << "ERROR: Selection out of range. \n";
+    }
+       
+    return 0;
+}
