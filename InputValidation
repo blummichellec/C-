@@ -1,0 +1,36 @@
+/*
+User inputs information about their car that meet logical criterion.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    double gallons, miles;
+    
+    cout << "How many gallons of gas can your car hold?: " << endl;
+    cin >> gallons;
+    
+    while (gallons <= 0)
+    {
+        cout << "Enter a valid number of gallons: \n";
+        cin >> gallons;
+    }
+    
+    cout << "How many miles can you drive with a full tank?: " << endl;
+    cin >> miles;
+    
+    while (miles <= 0)
+    {
+        cout << "Enter a valid number of miles: \n";
+        cin >> miles;
+    }
+    
+    cout.precision(2);
+    
+    cout << "Miles/Gallon: " << fixed << miles/gallons << endl;
+    
+    return 0;
+}
