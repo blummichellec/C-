@@ -1,0 +1,45 @@
+/*
+Identifying if user-input is a positive or a negative number.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int num, sumP = 0, sumN = 0, sum = 0;
+    double countP =0, countN = 0, avg, avgP, avgN;
+    
+    for (int i=0; i < 10; i++)
+    {
+        cout << "Please enter a whole number.\n";
+        cin >> num;
+        
+        if (num > 0)
+        {
+            sumP = sumP + num;
+            sum = sum + num;
+            countP++;
+        }
+        else
+        {
+            sumN = sumN + num;
+            sum = sum + num;
+            countN++;
+        }
+    }
+    
+    avg = sum/10.0;
+    avgP = sumP/countP;
+    avgN = sumN/countN;
+    
+    cout << "Sum of all positive numbers entered: " << sumP << endl;
+    cout << "Average of all positive numbers entered: " << avgP << endl;
+    cout << "Sum of all negative numbers entered: " << sumN << endl;
+    cout << "Average of all negative numbers entered: " << avgN << endl;
+    cout << "Sum of all numbers entered: " << sum << endl;
+    cout << "Average of all numbers entered: " << avg << endl;
+    
+    return 0;
+}
