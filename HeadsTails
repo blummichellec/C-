@@ -1,0 +1,40 @@
+/*
+Using random to see if a coin lands on heads or tails.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+using namespace std;
+
+//To use random
+#include <cstdlib>
+#include <ctime>
+
+string coinToss(int n);
+
+int main()
+{
+    int n;
+    
+    cout << "How many times should the coin be tossed?" << endl;
+    cin >> n;
+    
+    srand(time_t(NULL));
+    
+    for (int i = 1; n >= i; i++)
+    {
+        cout << "Toss #" << i << ": " << coinToss(n) << endl;
+    }
+    
+    return 0;
+}
+
+string coinToss(int n)
+{
+    int num = (rand() % 2) + 1;
+    
+    if (num == 1)
+        return "heads";
+    else
+        return "tails";
+}
