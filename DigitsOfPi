@@ -1,0 +1,29 @@
+/*
+Displays reqeusted amount of digists of Pi.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int n;
+    double pi = 0.0, sum = 0.0;
+    
+    cout << "How many terms would you like to use to approximate the value of pi?\n";
+    cin >> n;
+    
+    
+    for (int start = 0; start <= n; n--)
+    {
+        pi = ((pow(-1,n))/(2*n+1));
+        sum = sum + pi;
+    }
+    
+    cout.precision(10);
+    cout << fixed << 4*sum << endl;
+    
+    return 0;
+}
