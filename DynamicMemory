@@ -1,0 +1,32 @@
+/*
+Using dynamic memory in code.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int size;
+    double sum = 0,
+        average;
+    
+    cout << "How many students were surveyed?\n";
+    cin >>size;
+    
+    int *students = new int[size];
+    
+    for(int i = 0; i < size; i++)
+    {
+        cout << "Movies seen by student #" << (i+1) << endl;
+        cin >>students[i];
+        sum = sum + students[i];
+    }
+    
+    average = sum/size;
+    cout.precision(2);
+    cout << "Average: " << fixed << average << endl;
+    
+    delete[] students;
+}
