@@ -1,0 +1,52 @@
+/*
+Determines possible number of handshakes in the room.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+using namespace std;
+
+static int counter = 0;
+
+int handshake(int);
+void printHandshakes(int);
+
+int main()
+{
+    int n,
+        count = 0;
+    
+    while (true)
+    {
+        cout << "How many people are in the room?\n";
+        cin >> n;
+        if (n > 1)
+            break;
+    }
+    
+    count = handshake(n);
+    printHandshakes(count);
+    
+    return 0;
+}
+
+int handshake(int number)
+{
+    int n = number;
+    if (number > 0)
+    {
+        while (n > 1)
+        {
+            counter++;
+            n--;
+        }
+        number--;
+        counter = handshake(number);
+    }
+    return counter;
+}
+
+void printHandshakes(int number)
+{
+    cout << "Total number of handshakes in the room: " << number << endl;
+}
