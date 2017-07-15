@@ -1,0 +1,59 @@
+/*
+Given specific restraints, find the next smallest numberand the next largest number.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+using namespace std;
+
+bool containsDigit(int number, int digit);
+void fixLower(int& number);
+void fixUpper(int& number);
+
+int main()
+{
+    int temp, temp2;
+    
+    cout << "Enter a desired temperature: " << endl;
+    cin >> temp;
+    
+    while ((temp < 0) || (temp > 999))
+    {
+        cout << "Temperature must be between 0 and 999.\n";
+        cin >> temp;
+    }
+    
+    temp2 = temp;
+    
+    while ((containsDigit(temp, 1) == true) || (containsDigit(temp, 4) == true) || (containsDigit(temp, 7) == true))
+        fixLower(temp);
+    
+    while ((containsDigit(temp2, 1) == true) || (containsDigit(temp2, 4) == true) || (containsDigit(temp2, 7) == true))
+        fixUpper(temp2);
+    
+    cout << "Next Largest: " << temp2 << endl << "Next Smallest: " << temp << endl;
+    
+    return 0;
+}
+
+bool containsDigit(int number, int digit)
+{
+    if ((number/100) == digit)
+        return true;
+    else if ((number%10) == digit)
+        return true;
+    else if (((number/10)%10) == digit)
+        return true;
+    else
+        return false;
+}
+
+void fixLower(int& number)
+{
+    number = number - 1;
+}
+
+void fixUpper(int& number)
+{
+    number = number + 1;
+}
