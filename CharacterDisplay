@@ -1,0 +1,24 @@
+/*
+Displays characters according to their known numerical values.
+© 2016 MICHELLE BLUM ALL RIGHTS RESERVED
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int count = 0;
+    
+    for (char letter = 32; letter < 127; letter++)
+    {
+        cout << letter;
+        count ++;
+        
+        if (count % 16 == 0)
+            cout << endl;
+    }
+    
+    cout << endl;
+    return 0;
+}
